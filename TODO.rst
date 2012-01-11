@@ -17,8 +17,4 @@ List of pending jobs
 
 - The technician can ask client for webcam access to get live feed. The live feed
   images are sent to server by *server.py* . Those images are to be sent to the
-  web app to make it appear live {2 fps} (need to figure out a way) .
-
-  
-
-- 
+  web app to make it appear live {2 fps} (need to figure out a way).
