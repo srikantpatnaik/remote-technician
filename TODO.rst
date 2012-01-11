@@ -1,5 +1,5 @@
-List of pending jobs
---------------------
+List of pending tasks
+---------------------
 
 - Need to write *client.py* to load binary/hex to Arduino device as soon as
   it receives the file from server. The file will be received and overwritten
