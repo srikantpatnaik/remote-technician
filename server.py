@@ -20,11 +20,8 @@ def syncImage():
     # destination
     serverDir = commonPath + '/dest'
 
-    # check if the destination path already exist, if not, create it.
-    if not os.path.exists(serverDir):
-        os.mkdir(serverDir)             # make directory
-        print 'Successfully created directory', serverDir
-
+    makeDir(serverDir)
+    
     rsync_command = 'rsync -rvth ' + clientDir + ' ' + serverDir + '&>' + blackHole
 
     if os.system(rsync_command) == 0:
@@ -39,10 +36,7 @@ def syncBinary():
     # destination
     clientDir = commonPath + '/dest-bin'
 
-    # check if the destination path already exist, if not, create it.
-    if not os.path.exists(clientDir):
-        os.mkdir(clientDir)             # make directory
-        print 'Successfully created directory', clientDir
+    makeDir(clientDir)
 
     rsync_command = 'rsync -rvth ' + serverDir + ' ' + clientDir + '&>' + blackHole
 
@@ -51,8 +45,14 @@ def syncBinary():
     else:
         print 'ERROR: Sync for binary FAILED'
 
-
+def makeDir(destDir):
+    # check if the destination path already exist, if not, create it.
+    if not os.path.exists(destDir):
+        os.mkdir(destDir)             # make directory
+        print 'Successfully created directory', destDir
+        
 if __name__ == "__main__":
     syncImage()
     syncBinary()
+
 
