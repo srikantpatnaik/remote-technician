@@ -32,9 +32,9 @@ blackHole = '/dev/null'
 # sync jpeg image
 def syncImage():
     # source
-    clientDir = commonPath + '/src/'
+    clientDir = commonPath + '/src-jpg/'
     # destination
-    serverDir = commonPath + '/dest'
+    serverDir = commonPath + '/dest-jpg'
 
     if not os.path.exists(client + clientDir):
         print 'ERROR: No src.'
@@ -51,17 +51,17 @@ def syncImage():
         print 'ERROR: Sync for jpeg FAILED'
 
 # sync binary
-def syncBinary():
-    # source
-    serverDir = commonPath + '/src-bin/'
-    # destination
-    clientDir = commonPath + '/dest-bin'
+# def syncBinary():
+#     # source
+#     serverDir = commonPath + '/src-bin/'
+#     # destination
+#     clientDir = commonPath + '/dest-bin'
 
-    makeDir(clientDir)
+#     makeDir(clientDir)
 
-    rsync_command = 'rsync -rvth ' + serverDir + ' ' + client + clientDir + '&>' + blackHole
+#     rsync_command = 'rsync -rvth ' + serverDir + ' ' + client + clientDir + '&>' + blackHole
 
-    print rsync_command
+#     print rsync_command
     # if os.system(rsync_command) == 0:
     #     print 'Successfully synced binary to ', clientDir
     # else:
