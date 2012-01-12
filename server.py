@@ -3,13 +3,29 @@
 # desc: will sync both jpeg files and compiled binary across client and server
 # One should change the paths of clienDir & serverDir in both functions
 
-# import time
 import sys
 import os
 
+# user
+frm_user='sachin'
+to_user='sachin'
+
+# enter hostname or IP address
+frm_host='ver'
+to_host='localhost'
+
+# client='sachin@ver:'
+# server='sachin@localhost:'
+
+client=frm_user + '@' + frm_host + ':'
+server=to_user + '@' + to_host + ':'
+
+print client
+print server
 
 # comman-path to both server and client
 commonPath='/tmp/remote-technician'
+
 # blackHole, to store all the dump
 blackHole = '/dev/null'
 
@@ -20,9 +36,14 @@ def syncImage():
     # destination
     serverDir = commonPath + '/dest'
 
+    if not os.path.exists(client + clientDir):
+        print 'ERROR: No src.'
+
     makeDir(serverDir)
     
-    rsync_command = 'rsync -rvth ' + clientDir + ' ' + serverDir + '&>' + blackHole
+    rsync_command = 'rsync -rvth ' + client + clientDir + ' ' + serverDir + ' &> ' + blackHole
+
+    # print rsync_command
 
     if os.system(rsync_command) == 0:
         print 'Successfully synced all jpeg images to ', serverDir
@@ -38,22 +59,25 @@ def syncBinary():
 
     makeDir(clientDir)
 
-    rsync_command = 'rsync -rvth ' + serverDir + ' ' + clientDir + '&>' + blackHole
+    rsync_command = 'rsync -rvth ' + serverDir + ' ' + client + clientDir + '&>' + blackHole
 
-    if os.system(rsync_command) == 0:
-        print 'Successfully synced binary to ', clientDir
-    else:
-        print 'ERROR: Sync for binary FAILED'
+    print rsync_command
+    # if os.system(rsync_command) == 0:
+    #     print 'Successfully synced binary to ', clientDir
+    # else:
+    #     print 'ERROR: Sync for binary FAILED'
 
+# check if the destination path already exist, if not, create it.
 def makeDir(destDir):
-    # check if the destination path already exist, if not, create it.
     if not os.path.exists(destDir):
-        os.mkdir(destDir)             # make directory
+        os.makedirs(destDir)             # make directories
         print 'Successfully created directory', destDir
         
 if __name__ == "__main__":
     syncImage()
-    syncBinary()
+    # syncBinary()
+
+
 
 '''
 TODO:
