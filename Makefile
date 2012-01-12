@@ -9,6 +9,6 @@ clean:
 	-rm -rvf *~ .*~ \#* *.o
 distclean:
 	$(MAKE) clean
-	cd $(webapp) ; make
+	cd $(webapp) && $(MAKE) distclean
 
 
