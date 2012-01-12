@@ -3,7 +3,6 @@
 
 all:
 	$(MAKE) distclean
-
 clean:
 	@echo "cleaning up..."
 	-rm -rvf *~ .*~ \#* *.o
