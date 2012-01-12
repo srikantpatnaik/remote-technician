@@ -7,15 +7,23 @@
 import sys
 import os
 
-# blackHole
+
+# comman-path to both server and client
+commonPath='/tmp/remote-technician'
+# blackHole, to store all the dump
 blackHole = '/dev/null'
 
 # sync jpeg image
 def syncImage():
     # source
-    clientDir = '/home/linus/temp/github/remote-technician/src/'
+    clientDir = commonPath + '/src/'
     # destination
-    serverDir = '/home/linus/temp/github/remote-technician/dest'
+    serverDir = commonPath + '/dest'
+
+    # check if the destination path already exist, if not, create it.
+    if not os.path.exists(serverDir):
+        os.mkdir(serverDir)             # make directory
+        print 'Successfully created directory', serverDir
 
     rsync_command = 'rsync -rvth ' + clientDir + ' ' + serverDir + '&>' + blackHole
 
@@ -27,9 +35,14 @@ def syncImage():
 # sync binary
 def syncBinary():
     # source
-    serverDir = '/home/linus/temp/github/remote-technician/src-bin/'
+    serverDir = commonPath + '/src-bin/'
     # destination
-    clientDir = '/home/linus/temp/github/remote-technician/dest-bin'
+    clientDir = commonPath + '/dest-bin'
+
+    # check if the destination path already exist, if not, create it.
+    if not os.path.exists(clientDir):
+        os.mkdir(clientDir)             # make directory
+        print 'Successfully created directory', clientDir
 
     rsync_command = 'rsync -rvth ' + serverDir + ' ' + clientDir + '&>' + blackHole
 
