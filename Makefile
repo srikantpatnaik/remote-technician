@@ -1,4 +1,5 @@
 # Makefile for remote-technician
+webapp=webapp
 .PHONY= clean all
 
 all:
@@ -8,5 +9,6 @@ clean:
 	-rm -rvf *~ .*~ \#* *.o
 distclean:
 	$(MAKE) clean
+	cd $(webapp) ; make
 
 
