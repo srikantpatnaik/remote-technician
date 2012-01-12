@@ -5,7 +5,7 @@ all:
 	python server.py
 clean:
 	@echo "cleaning up..."
-	-rm -rvf *~ \#* *.o
+	-rm -rvf *~ .*~ \#* *.o
 distclean:
 	$(MAKE) clean
 
