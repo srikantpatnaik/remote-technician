@@ -55,4 +55,21 @@ if __name__ == "__main__":
     syncImage()
     syncBinary()
 
+'''
+TODO:
+=====
+
+for JPEG file:
+-------------
+- Check for remote(client) path[client@hostname:/tmp/remote-technician/src/], if exist, then
+check/create dir on server[/tmp/remote-technician/dest]. Finally sync *.jpg files on server.
+
+for binary file:
+----------------
+- Check for server path[/tmp/remote-technician/src-bin/], if exist,then check/create dir on
+client[client@hostname:/tmp/remote-technician/dest-bin] and finally sync binary file on client
+
+some change for testing-branch
+
+'''
 
