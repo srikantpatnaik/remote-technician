@@ -1,8 +1,4 @@
-Introduction
-------------
-This directory contains files for ``webapp`` written in Django. This file will host Django related FAQs in future. For newbie's this page is kind of cheatsheet.
-We may remove this page at the end of this project.
-
+The present directory contains files for ``webapp`` written in Django. This README file will contain Django related cheatsheets for newbies.We may remove this page at the end of this project.
 
 To setup this ``webapp`` project run the following command::
 
