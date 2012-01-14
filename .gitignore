@@ -3,5 +3,6 @@
 \#*#
 !.gitignore
 *.orig
-
+*.pyc
+webapp/*.pyc
 
