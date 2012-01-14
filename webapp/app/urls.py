@@ -1,6 +1,7 @@
 from django.conf.urls.defaults import patterns, include, url
 from app.views import hello, current_datetime, my_homepage
 from app.hour_ahead import hour_ahead
+from app.min_ahead import min_ahead
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
@@ -9,7 +10,8 @@ urlpatterns = patterns('',
                        ('^hello/$', hello),
                        ('^time/$', current_datetime),
                        ('^$', my_homepage),
-                       (r'^ahead/(\d{1,2})/$', hour_ahead)
+                       (r'^ahead/(\d{1,2})/$', hour_ahead),
+                       (r'^min/(\d{1,2})/$', min_ahead)
     # Examples:
     # url(r'^$', 'app.views.home', name='home'),
     # url(r'^app/', include('app.foo.urls')),
