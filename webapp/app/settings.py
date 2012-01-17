@@ -4,7 +4,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('isachin', 'isachin@iitb.ac.in'),
+    ('isachin', 'isachin@iitb.ac.in'),
 )
 
 MANAGERS = ADMINS
@@ -12,7 +12,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'webapp',                      # Or path to database file if using sqlite3.
+        'NAME': 'app',                      # Or path to database file if using sqlite3.
         'USER': 'sachin',                      # Not used with sqlite3.
         'PASSWORD': 'sachin',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
